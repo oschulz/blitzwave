@@ -7,7 +7,7 @@ lib_LTLIBRARIES = libblitzwave.la
 libblitzwave_la_SOURCES = arrayTools.cxx Wavelet.cxx WaveletDecomp.cxx
 libblitzwave_la_headers = arrayTools.h WaveletDecomp.h Wavelet.h
 
-include_HEADERS = $(libblitzwave_la_headers)
+pkginclude_HEADERS = $(libblitzwave_la_headers)
 
 noinst_PROGRAMS = arrayTools-test WaveletDecomp-test Wavelet-test
 
