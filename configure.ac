@@ -27,28 +27,41 @@ for LIBNAME in $REQ_LIBS; do
 	if ${PKGCONFIG} ${LIBNAME}; then
 		AC_MSG_RESULT(yes)
 		REQ_PKGS="$REQ_PKGS ${LIBNAME}"
-		LIBS="`${PKGCONFIG} ${LIBNAME} --libs` $LIBS"
 	else
 		AC_MSG_RESULT(no)
 		AC_MSG_CHECKING(${LIBCONFIG})
 		if which "${LIBCONFIG}" > /dev/null 2> /dev/null ; then
 			AC_MSG_RESULT(yes)
 			LIB_CFLAGS="$LIB_CFLAGS `${LIBCONFIG} --cflags`"
-			NEW_LIBS="`${LIBCONFIG} --libs`"
-			LIB_LIBS="${NEW_LIBS} $LIB_LIBS"
-			LIBS="${NEW_LIBS} $LIBS"
+			LIB_LIBS="`${LIBCONFIG} --libs` $LIB_LIBS"
 		else
 			AC_MSG_RESULT(no)
 			NEW_LIBS=""
 			AC_CHECK_LIB(${LIBNAME}, main, NEW_LIBS="-l${LIBNAME}", [AC_MSG_ERROR([Could not find ]${LIBNAME}[ library!])])
 			LIB_LIBS="${NEW_LIBS} $LIB_LIBS"
-			LIBS="${NEW_LIBS} $LIBS"
 		fi
 	fi
 done
 
+CFLAGS="$CFLAGS $LIB_CFLAGS"
+CXXFLAGS="$CXXFLAGS $LIB_CFLAGS"
+LIBS="$LIB_LIBS $LIBS"
+
 AC_SUBST(LIB_CFLAGS)
 AC_SUBST(LIB_LIBS)
+
+
+if @<:@ "${REQ_PKGS}" != "" @:>@ ; then
+	for PKGNAME in ${REQ_PKGS}; do
+		if ! "${PKGCONFIG}" "${PKGNAME}"; then
+			AC_MSG_ERROR([Package requirements not met - no package ']${PKGNAME}[' found])
+		fi
+	done
+	CFLAGS="$CFLAGS `${PKGCONFIG} ${REQ_PKGS} --cflags`"
+	CXXFLAGS="$CXXFLAGS `${PKGCONFIG} ${REQ_PKGS} --cflags`"
+	LIBS="`${PKGCONFIG} ${REQ_PKGS} --libs` $LIBS"
+fi
+
 AC_SUBST(REQ_PKGS)
 
 
