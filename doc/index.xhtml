@@ -9,14 +9,14 @@
 		<meta http-equiv="content-language" content="en"/>
 		<meta name="robots" content="index,follow"/>
 		<link rel="stylesheet" type="text/css" href="packagedoc.css"/>
-		<title>blitzwave</title>
+		<title>blitzwave C++ Wavelet Library</title>
 		<meta name="author" content="Oliver Schulz"/>
 		<meta name="keywords" content="blitz++, wavelet library, lifting scheme"/>
 	</head>
 	<body>
 
 	<div id="header">
-		<h1>blitzwave C++ wavelet mini-library</h1>
+		<h1>blitzwave C++ Wavelet Library</h1>
 	</div>
 
 	<div id="navigation">
@@ -36,20 +36,20 @@
 	<div id="content">
 		<h2 id="SEC-Overview">Overview</h2>
 
-		<p>blitzwave is a c++ wavelet mini-library building on the
-		<a href="http://www.oonumerics.org/blitz">blitz++</a> array template library.
+		<p>blitzwave is a c++ wavelet library building on the
+		<a href="http://blitz.sourceforge.net/">blitz++</a> array template library.
 		blitzwave is heavily templated and supports wavelet decompositions of
 		n-dimensional arrays of various numerical data types.
 		You can define and use your own wavelets, a number of pre-defined,
 		ready-to-use wavelets are available.</p>
-		<p> Performance is quite good, speed is similar to the
-		<a href="http://www.cs.kuleuven.ac.be/~wavelets/">WAILI</a> library
+		<p> Performance is quite good, similar to the
+		<a href="http://nalag.cs.kuleuven.be/research/software/wavelets/">WAILI</a> library
 		(using datatype int for blitzwave).</p>
 
 		<p>The blitzwave library is placed under the GNU General Public License.</p>
 
-		<p>It is hosted by <a href="http://sf.net">SourceForge.net</a>,
-		also take a look at the <a href="http://sourceforge.net/projects/blitzwave">project page</a>.</p>
+		<p>It is hosted on <a href="http://github.com/">GitHub</a>,
+		also take a look at the <a href="http://github.com/oschulz/blitzwave/">project page</a>.</p>
 
 
 		<h2 id="SEC-News">What's new?</h2>
@@ -111,11 +111,9 @@
 
 		<h2 id="SEC-Status">Status</h2>
 
-		<p>blitzwave seems to run stable and produce mathematically correct
-		results. It has been used by several people for some time
-		now without major problems, the code is considered
-		to be of beta quality. The API may still be subject to minor
-		changes.</p>
+		<p>blitzwave is stable and produces mathematically correct results. It
+		has been used in production for several different scientific projects
+		(that I know of). The API may still be subject to minor changes.</p>
 
 		<p>Several popular wavelets are pre-defined in the library,
 		more may be added over time.</p>
@@ -144,24 +142,22 @@
 
 		<h2 id="SEC-Documentation">Documentation</h2>
 
-		<p>The API-Documentation is available
-		<a href="api/index.html">here</a>. It still needs to be improved a bit.</p>
+		<p>The API-Documentation is available <a href="api/index.html">here</a>.</p>
 
 
 		<h2 id="SEC-Download">Download</h2>
 
 		<h3>Releases</h3>
 
-		<p>You can download the current and past blitzwave releases from the
-		<a href="https://sourceforge.net/project/showfiles.php?group_id=91002">
-		project files section</a>.</p>
+		<p>The source code of current and past blitzwave releases is
+		<a href="https://github.com/oschulz/blitzwave/downloads">
+		available here</a>.</p>
 
 		<h3>Development</h3>
 
 		<p>Since version 0.7.0, the blitzwave source code is managed with
-		<a href="http://git.or.cz/">Git</a>. The blitzwave Git repository
-		is available at the
-		<a href="https://sourceforge.net/scm/?type=git&amp;group_id=91002">project code section</a>.
+		<a href="http://git-scm.com/">Git</a>. You can clone the blitzwave
+		Git repository <a href="https://github.com/oschulz/blitzwave/">on GitHub</a>.
 		</p>
 
 		<h2 id="SEC-Installation">Installation</h2>
@@ -303,7 +299,7 @@ void simpleDecompose(numtype *data, int rows, int cols) {
 			Proceedings of Visual Communication and Image Processing (VCIP) 2003.</p></li>
 		</ol>
 
-		<p class="author">2008-07-23, Oliver Schulz &lt;oliver.schulz at tu-dortmund.de&gt;</p>
+		<p class="author">2012-08-15, Oliver Schulz &lt;oliver.schulz at tu-dortmund.de&gt;</p>
 	</div>
 	</body>
 </html>

@@ -6,7 +6,7 @@ EXTRA_DIST = autogen.sh
 
 SUBDIRS = src doc
 
-dist_doc_DATA = README COPYING AUTHORS ChangeLog INSTALL NEWS
+dist_doc_DATA = README.md COPYING AUTHORS ChangeLog INSTALL NEWS
 
 if COND_PKGCONFIG
 pkgconfigdir = $(libdir)/pkgconfig
