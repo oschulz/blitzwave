@@ -1,0 +1,124 @@
+html { }
+
+body {
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+
+	padding-left: 2ex;
+	padding-right: 2ex;
+	padding-top: 2ex;
+	padding-bottom: 2ex;
+
+	font-family: serif;
+	font-size: medium;
+	color: black;
+}
+
+#header {
+}
+
+#navigation {
+}
+
+#content {
+}
+	
+ul.toc-0 {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+p {
+	margin-top:.25em; margin-bottom:.25em;
+	text-indent:2ex; text-align:left;
+}
+
+h1 { font-size: xx-large; font-family: Helvetica, Sans-Serif; text-align:center;}
+h2 { font-size: xx-large; font-family: Helvetica, Sans-Serif; }
+h3 { font-size: x-large; font-family: Helvetica, Sans-Serif; }
+h4 { font-size: x-large; font-family: Times, Serif; }
+h5 { font-size: large; font-family: Times, Serif; }
+h6 { font-size: medium; font-family: Times, Serif; }
+
+
+pre.sourcecode {
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Courier", monospace;
+	font-size: small;
+	background-color: silver;
+}
+
+p.author {
+	border-top: medium solid black;
+	padding-top: .5em;
+	text-align: right;
+}
+
+
+/* screen media ********************************************************/
+
+@media screen { 
+
+html { background-color:#909080; }
+
+body {
+
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+
+	padding-left: 2ex;
+	padding-right: 2ex;
+	padding-top: 2ex;
+	padding-bottom: 2ex;
+
+	font-family: serif;
+	font-size: medium;
+	color: black;
+}
+
+#header {
+	background-color:#E0E0D0;
+}
+
+#navigation {
+	margin-top:2ex;	
+	float:left;
+	width:23ex;
+	background-color:#E0E0D0;
+	padding-top:.1ex; padding-bottom:.1ex;
+}
+
+#content {
+	margin-top:2ex;	
+	margin-left:25ex;	
+	padding-left:2ex; padding-right:2ex;
+	padding-top:.1ex; padding-bottom:.1ex;
+	background-color:#E0E0D0;
+}
+
+h1 { text-align:center; margin-top:0; margin-bottom:0; }
+
+pre.sourcecode {
+	width: 100ex;
+	padding: 1ex;
+	background-color: #B0B0A0;
+}
+
+}
+
+
+/* print media ********************************************************/
+
+@media print { 
+
+#navigation {
+	display: none;
+}
+
+}

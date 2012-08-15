@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="packagedoc.css" type="text/css"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta http-equiv="content-language" content="en"/>
+		<meta name="robots" content="index,follow"/>
+		<link rel="stylesheet" type="text/css" href="packagedoc.css"/>
+		<title>blitzwave C++ Wavelet Library</title>
+		<meta name="author" content="Oliver Schulz"/>
+		<meta name="keywords" content="blitz++, wavelet library, lifting scheme"/>
+	</head>
+	<body>
+
+	<div id="header">
+		<h1>blitzwave C++ Wavelet Library</h1>
+	</div>
+
+	<div id="navigation">
+		<ul class="toc-0">
+			<li><p><a class="toc" href="#SEC-Overview">Overview</a></p></li>
+			<li><p><a class="toc" href="#SEC-News">What's new?</a></p></li>
+			<li><p><a class="toc" href="#SEC-Status">Status</a></p></li>
+			<li><p><a class="toc" href="#SEC-Details">Details</a></p></li>
+			<li><p><a class="toc" href="#SEC-Documentation">Documentation</a></p></li>
+			<li><p><a class="toc" href="#SEC-Download">Download</a></p></li>
+			<li><p><a class="toc" href="#SEC-Installation">Installation</a></p></li>
+			<li><p><a class="toc" href="#SEC-FAQ">FAQ</a></p></li>
+			<li><p><a class="toc" href="#SEC-References">References</a></p></li>
+		</ul>
+	</div>
+
+	<div id="content">
+		<h2 id="SEC-Overview">Overview</h2>
+
+		<p>blitzwave is a c++ wavelet library building on the
+		<a href="http://blitz.sourceforge.net/">blitz++</a> array template library.
+		blitzwave is heavily templated and supports wavelet decompositions of
+		n-dimensional arrays of various numerical data types.
+		You can define and use your own wavelets, a number of pre-defined,
+		ready-to-use wavelets are available.</p>
+		<p> Performance is quite good, similar to the
+		<a href="http://nalag.cs.kuleuven.be/research/software/wavelets/">WAILI</a> library
+		(using datatype int for blitzwave).</p>
+
+		<p>The blitzwave library is placed under the GNU General Public License.</p>
+
+		<p>It is hosted on <a href="http://github.com/">GitHub</a>,
+		also take a look at the <a href="http://github.com/oschulz/blitzwave/">project page</a>.</p>
+
+
+		<h2 id="SEC-News">What's new?</h2>
+		
+		<h3>Version 0.7.0</h3>
+		
+		<ul>
+			<li>Made code compatible to newer GCC versions.</li>
+			<li>blitzwave now uses namespaces. All classes and functions
+			are available under the namespace "bwave". Please add
+			"using namespace bwave;" or similar to your code to use
+			blitzwave</li>
+			<li>Changed build system to automake+autoconf.</li>
+			<li>Moved test code to separate files.</li>
+			<li>Changed C++ file suffix from .cc to .cxx.</li>
+		</ul>
+		
+		<h3>Version 0.6.0</h3>
+		
+		<ul>
+			<li>A standard installer has been added ("make install").</li>
+			<li>pkg-config is now supported for library detection (i.e. of blitz++).</li>
+			<li>Improved compiler compatibility and language conformance. blitzwave
+			will now compile with g++ -Wall -Werror -pedantic-errors -Wundef -Wno-long-long.</li>
+		</ul>
+
+
+		<h3>Version 0.5.0</h3>
+		
+		<ul>
+			<li>Blitzwave works with the blitz++ BZ_DEBUG option now.</li>
+			<li>A TinyVector range-violation has been fixed.</li>
+		</ul>
+
+
+		<h3>Version 0.4.0</h3>
+		
+		<ul>
+			<li>More small bugfixes.</li>
+		</ul>
+
+
+		<h3>Version 0.3.0</h3>
+		
+		<ul>
+			<li>Some small changes and bugfixes.</li>
+		</ul>
+
+
+		<h3>Version 0.2.0</h3>
+		
+		<ul>
+			<li>A few Bugs have been found and fixed.</li>
+			<li>There are more predefined wavelets now.</li>
+			<li>API Documentation has been improved a lot.</li>
+			<li>Lot's of small code changes and some small API changes.</li>
+		</ul>
+
+
+		<h2 id="SEC-Status">Status</h2>
+
+		<p>blitzwave is stable and produces mathematically correct results. It
+		has been used in production for several different scientific projects
+		(that I know of). The API may still be subject to minor changes.</p>
+
+		<p>Several popular wavelets are pre-defined in the library,
+		more may be added over time.</p>
+
+		<p>If you should find bugs/errors, both in code or underlying math,
+		please let me know. Corrections, patches and code contributions are
+		always welcome.</p>
+
+
+		<h2 id="SEC-Details">Details</h2>
+
+		<h3>Wavelet Algorithm</h3>
+
+		<p>blitzwave uses the fast and well-known lifting scheme for it's
+		wavelet transformations. See the
+		<a href="#SEC-References">references</a> for literature on the subject.</p>
+		
+		<h3>Boundary handling</h3>
+		
+		<p>Boundary handling is done via data extension. The extension is
+		done anew in every lifting step, ensuring perfect reconstruction
+		after decomposition-recomposition independent of extension scheme.
+		Currently, only zero- and constant extension are implemented,
+		symmetric extension and other methods will follow.</p>
+				
+
+		<h2 id="SEC-Documentation">Documentation</h2>
+
+		<p>The API-Documentation is available <a href="api/index.html">here</a>.</p>
+
+
+		<h2 id="SEC-Download">Download</h2>
+
+		<h3>Releases</h3>
+
+		<p>The source code of current and past blitzwave releases is
+		<a href="https://github.com/oschulz/blitzwave/downloads">
+		available here</a>.</p>
+
+		<h3>Development</h3>
+
+		<p>Since version 0.7.0, the blitzwave source code is managed with
+		<a href="http://git-scm.com/">Git</a>. You can clone the blitzwave
+		Git repository <a href="https://github.com/oschulz/blitzwave/">on GitHub</a>.
+		</p>
+
+		<h2 id="SEC-Installation">Installation</h2>
+
+		<p>Blitzwave can be installed as a library with "make install".
+		However, blitzwave consists of only 6 files, so it might be
+		appropriate to just copy them into your Project.</p>
+
+		<p>The only library dependency is blitz++, you need to have that
+		installed. Apart from blitz++ you will need an ISO-C++ compliant
+		compiler, because both blitz++ and blitzwave make use of advanced
+		C++ features. GCC 3.x will do nicely.</p>
+		
+
+		<h2 id="SEC-FAQ">FAQ</h2>
+
+		<h3>How do i get started?</h3>
+
+		<p>Run "./configure" and "make", then move to the "src" directory.
+		Execute the "WaveletDecomp-test" binary which will demonstrate image
+		compression and wavelet form reconstruction.
+		There is a such a test-function included in each header file. Look at
+		its implementation for some usage examples. (There is also an "examples"
+		directory, but it's still quite empty.)</p>
+
+
+		<h3>Which predefined wavelets are available?</h3>
+
+		<p>blitzwave currently comes with the Cohen-Daubechies-Feauveau
+		CDF(1,1) (= Haar Wavelet), CDF(2,2) (= LeGall(5,3), JPEG 2000),
+		CDF(3,1), CDF(3,3), CDF(4,2) (Cubic-Spline, a variant is also included),
+		CDF(9,7) (also called Daubechies 9/7, JPEG 2000) wavelets and the
+		well-known Daubechies D4 wavelet.</p>
+
+
+		
+		<h3>How do I define a wavelet?</h3>
+
+		<p>To define a wavelet, you create a Wavelet object by specifying
+		the appropriate lifting steps and normalization factors:</p>
+
+<pre class="sourcecode">Wavelet myWavelet( "CDF(2,2)", sqrt(2.0), sqrt(2.0)/2,
+        Wavelet::LiftingStep(Wavelet::LiftingStep::DUAL,    0,  2, -1, -1),
+        Wavelet::LiftingStep(Wavelet::LiftingStep::PRIMAL, -1,  4,  1,  1)
+);
+</pre>
+
+		<p>You can then check if you've give the right values at the right place:</p>
+
+<pre class="sourcecode"> cout &lt;&lt; myWavelet &lt;&lt; endl;</pre>
+
+		<p>This will result in a control output:</p>
+
+<pre class="sourcecode">Wavelet: CDF(2,2)
+        Lifting steps:
+                dual lifting:   d(i) = d(i) + 1/2 ( - s(i) - s(i+1) )
+                primal lifting: s(i) = s(i) + 1/4 ( d(i-1) + d(i) )
+        Normalisation:
+                s(i) = s(i) * 1.41421
+                d(i) = d(i) * 0.707107</pre>
+ 
+
+		<h3>Why are compile times so high?</h3>
+
+		<p>This is because of the extensive use of templates in blitzwave
+		and blitz++. I'm not sure yet if it's possible to speed up compiling
+		while maintaining flexibility.</p>
+
+		<p>However, if compile times are unacceptably high for your needs,
+		you can easily write a non-templated wrapper for a specific data-type
+		and -dimensionality. Because blitz++ arrays can be created to use
+		preexisting data without copying, neither blitz++ nor blitzwave need
+		to be used by the interface of your wrapper. Therefore, blitzwave can
+		be easily integrated into applications without using any of it's data-types.</p>
+		<p>Simple example for such a wrapper:</p>
+<pre class="sourcecode">// simpleDecompose.h
+
+typedef short numtype;
+
+void simpleDecompose(numtype *data, int rows, int cols);</pre>
+
+
+<pre class="sourcecode">// simpleDecompose.cxx
+
+#include "simpleDecompose.h"
+#include &lt;WaveletDecomp.h&gt;
+
+void simpleDecompose(numtype *data, int rows, int cols) {
+    using namespace blitz;
+    using namespace bwave;
+
+    // Create a blitz array on data assuming C-style memory layout
+    // (data is used directly, not copied):
+    GeneralArrayStorage&lt;2&gt; storage;
+    storage.ordering() = secondDim, firstDim;
+    Array&lt;numtype, 2&gt; array(data, shape(rows, cols), neverDeleteData,
+    	storage);
+
+    // Create a CDF(2,2) nonstandard wavelet decomposition in 2 dimensions:
+    WaveletDecomp&lt;2&gt; decomp(WL_CDF_2_2, NONSTD_DECOMP);
+	
+    // Apply the decomposition on the data (in situ):
+    decomp.apply(array);
+}</pre>
+
+
+		<h3>Performance seems to depend on array size in a strange way. Why?</h3>
+
+		<p>Decomposition speed will break down to about 10% for certain array
+		sizes on some machines. This is because blitzwave need to do strided
+		memory access (which is provided by blitz++). There reason for the
+		performance breakdown does not lie within blitz++, however. Some machine
+		architectures will to strided memory writes very slow for some specific
+		stride lengths, especially greater powers of 2.</p>
+		<p>I've seen this behavior on Intel and AMD machines, on an Alpha
+		to a lesser degree, but not on a Sun Sparc, for example. I don't know
+		the technical reason, try <a href="examples/array-slowdown.cxx">this</a> code
+		snippet for a demonstration of the problem.</p>
+
+
+		
+		<h2 id="SEC-References">References</h2>
+
+		<ol>
+			<li><p>W. Sweldens. The lifting scheme: A new philosophy in biorthogonal
+			wavelet constructions. In A. F. Laine and M. Unser, editors, Wavelet
+			Applications in Signal and Image Processing III, pages 68-79. Proc. SPIE 2569,
+			1995.</p></li>
+
+			<li><p>W. Sweldens. The lifting scheme: A custom-design construction
+			of biorthogonal wavelets. Appl. Comput. Harmon. Anal., 3(2):186-200, 1996.</p></li>
+
+			<li><p>R. Calderbank, I. Daubechies, W. Sweldens, and B.-L. Yeo. Wavelet
+			transforms that map integers to integers. Technical report, Department
+			of Mathematics, Princeton University, 1996.</p></li>
+
+			<li><p>B. Wohlberg and C. Brislawn,  Reversible integer-to-integer
+			transforms and symmetric extension of even-length filter banks,
+			Proceedings of Visual Communication and Image Processing (VCIP) 2003.</p></li>
+		</ol>
+
+		<p class="author">2012-08-15, Oliver Schulz &lt;oliver.schulz at tu-dortmund.de&gt;</p>
+	</div>
+	</body>
+</html>
