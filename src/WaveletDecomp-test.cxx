@@ -59,7 +59,7 @@ int main(int argc, char *argv[], char *envp[]) {
 
 		TinyVector<int, 3> decDepth = decomp.apply(intimg);
 		Array<numtype, 3> sepimg(intimg.shape());
-		WaveletDecomp<3> decomp2(decomp); decomp2.storageMode(SEPARATED_COEFFS);
+		WaveletDecomp<3> decomp2(decomp, SEPARATED_COEFFS);
 		Array<TinyVector<int,3>, 1> idx( decomp2.indices(intimg) );
 		for (int i=0; i<idx.rows(); ++i)
 			decomp2.coeffs(sepimg, idx(i)) = decomp.coeffs(intimg, idx(i));

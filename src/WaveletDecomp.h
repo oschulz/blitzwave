@@ -125,6 +125,9 @@ public:
 	ExtensionMode extensionMode(ExtensionMode newEM)
 		{ return m_extMode=newEM; }
 
+	/// @brief  Get the selected dimensions.
+	const blitz::TinyVector<bool, tp_rank>& selectedDims() { return m_dimSelect; }
+
 	/// @brief  Query if decomposition will be applied in array dimension @c dim.
 	bool dimSelected(int dim) const { return m_dimSelect(dim); }
 
@@ -250,6 +253,16 @@ public:
 		return norm;
 	}
 
+
+	/// @brief  Copy other decomposition while changing coefficient storage mode
+	/// @param  other    Decomposition to copy
+	/// @param  cs       Coefficient storage mode
+	///
+	/// Useful to work with data in different coefficient storage modes.
+	WaveletDecomp(WaveletDecomp<tp_rank> other, CoeffStorage cs)
+		: m_wavelet(other.m_wavelet), m_decomp(other.m_decomp), m_storageMode(cs),
+		  m_extMode(other.m_extMode), m_maxLevel(other.m_maxLevel), m_dimSelect(other.m_dimSelect)
+	{}
 
 	/// @brief  Construct a new wavelet decomposition.
 	/// @param  wavelet  Wavelet to use in the decomposition.
