@@ -1,4 +1,4 @@
-// Copyright (C) 2003-2008 Oliver Schulz <oliver.schulz@tu-dortmund.de>
+// Copyright (C) 2003-2013 Oliver Schulz <oliver.schulz@tu-dortmund.de>
 
 // This program is free software; you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -89,11 +89,14 @@ protected:
 	
 public:
 	/// @brief  Get the wavelet used in this decomposition.
-	Wavelet wavelet() const { return m_wavelet; }
+	const Wavelet& wavelet() const { return m_wavelet; }
 
 	/// @brief  Get the type of this decomposition (i.e. standard
 	///         or non-standard).
 	DecompType decompType() const { return m_decomp; }
+
+	/// @brief  Get the maximum decomposition level.
+	int maxLevel() const { return m_maxLevel; }
 
 	/// @brief  Get the mode in which the wavelet/scaling coefficients
 	///         are stored.
