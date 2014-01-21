@@ -72,6 +72,7 @@ AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_FILES([
 	Makefile
 	blitzwave.pc
+	blitzwave-config
 	src/Makefile
 	doc/Makefile doc/Doxyfile
 ])
