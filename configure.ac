@@ -1,6 +1,6 @@
 # Initialize:
 
-AC_INIT([blitzwave], [0.7.1])
+AC_INIT([blitzwave], [0.8.0])
 AM_INIT_AUTOMAKE([-Wall -Werror])
 
 # Checks for programs:
