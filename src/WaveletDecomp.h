@@ -195,7 +195,7 @@ public:
 	/// @see coeffs(blitz::Array<tp_Type,tp_rank> &data, blitz::TinyVector<int, tp_rank> indices)
 	template<class tp_Type>
 		blitz::Array< blitz::TinyVector<int, tp_rank>, 1> indices(
-			blitz::Array<tp_Type,tp_rank> &data) const;
+			const blitz::Array<tp_Type,tp_rank> &data) const;
 
 	/// @brief  Get all wavelet/scaling coefficients of the same type
 	///         (i.e. corresponding to basis functions differing only by
@@ -233,7 +233,7 @@ public:
 	/// The method @c indices(...) can be used to get a list of valid index
 	/// vectors.
 	template<class tp_Type>
-		blitz::Array<tp_Type,tp_rank> coeffs(blitz::Array<tp_Type,tp_rank> &data,
+		blitz::Array<tp_Type,tp_rank> coeffs(const blitz::Array<tp_Type,tp_rank> &data,
 			blitz::TinyVector<int, tp_rank> indices) const;
 	
 	/// @brief  Get the normalization factor for the specified coefficient type.
@@ -421,7 +421,7 @@ template<int tp_rank> template<class tp_Type>
 template<int tp_rank> template<class tp_Type>
 	blitz::Array< blitz::TinyVector<int, tp_rank>, 1>
 	WaveletDecomp<tp_rank>::indices(
-		blitz::Array<tp_Type,tp_rank> &data) const
+		const blitz::Array<tp_Type,tp_rank> &data) const
 {
 	using namespace blitz;
 	TinyVector<int, tp_rank> decompDepth;
@@ -466,7 +466,7 @@ template<int tp_rank> template<class tp_Type>
 
 template<int tp_rank> template<class tp_Type>
 	blitz::Array<tp_Type,tp_rank> WaveletDecomp<tp_rank>::coeffs(
-		blitz::Array<tp_Type,tp_rank> &data,
+		const blitz::Array<tp_Type,tp_rank> &data,
 		blitz::TinyVector<int, tp_rank> indices) const
 {
 	using namespace blitz;
