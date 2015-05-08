@@ -3,9 +3,9 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@
 
-Name: @PACKAGE@
+Name: @PACKAGE_TARNAME@
 Version: @VERSION@
 Description: The blitzwave wavelet library.
-Requires: @REQ_PKGS@
-Libs: -L${libdir} -l@PACKAGE@ @LIB_LIBS@
-Cflags: -I${includedir} @LIB_CFLAGS@
+Requires: @PKGCONFIG_DEPS@
+Libs: -L${libdir} -l@PACKAGE_TARNAME@ @DEP_LIBS@
+Cflags: -I${includedir} @DEP_CFLAGS@
